@@ -12,6 +12,7 @@ export class LoginUserComponent {
     form: FormGroup;
     email: AbstractControl;
     password: AbstractControl;
+    showRegisterForm: boolean = false;
 
     constructor(private authService: AuthService, private fb: FormBuilder) {
         this.form = fb.group({
@@ -31,5 +32,9 @@ export class LoginUserComponent {
 
     loginVia(provider: string) {
         this.authService.loginViaProvider(provider);
+    }
+    
+    addRegisterForm() {
+        this.showRegisterForm = true;
     }
 }

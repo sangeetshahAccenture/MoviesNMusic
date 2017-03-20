@@ -4,7 +4,7 @@
         <a href="#" class="btn btn-lg btn-primary btn-block" (click)="loginVia('twitter')">Twitter</a>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6">
-        <a href="#" class="btn btn-lg btn-info btn-block" (click)="loginVia('google')">Google</a>
+        <a href="#" id="googlebtn" class="btn btn-lg btn-info btn-block" (click)="loginVia('google')">Google</a>
     </div>
 </div>
 <div class="login-or">
@@ -12,7 +12,7 @@
     <span class="span-or">or</span>
 </div>
 
-<form [formGroup]="form" role="form" (ngSubmit)="login(form.value)" novalidate>
+<form [formGroup]="form" role="form" (ngSubmit)="login(form.value)" *ngIf="!showRegisterForm" novalidate>
     <div class="form-group" [class.has-error]="email.invalid && email.touched">
         <label for="email">Email</label>
         <input [formControl]="email" required type="text" class="form-control" id="email" name="email">
@@ -36,4 +36,8 @@
     <button type="submit" class="btn btn btn-primary">
         Log In
     </button>
+    <button type="button" class="btn btn btn-primary" (click)="addRegisterForm()">
+        Register
+    </button>
 </form>
+<app-register-user *ngIf="showRegisterForm"></app-register-user>
