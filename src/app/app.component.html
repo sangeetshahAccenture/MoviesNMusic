@@ -6,16 +6,16 @@
         <app-display-user></app-display-user>
     </div>
     <div class="row">
-        <div *ngIf="!(isLoggedIn()|async)" class="col-md-4 col-md-offset-4">
-            <app-login-user></app-login-user>
+        <div *ngIf="!(isLoggedIn()|async) && showLogIn" class="col-md-4 col-md-offset-4">
+            <app-login-user (altLogInBtnClicked)="altBtnClicked($event)"></app-login-user>
         </div>
-        <!--<div *ngIf="!(isLoggedIn()|async)" class="col-md-4 col-md-offset-1">
-            <app-register-user></app-register-user>
-        </div>-->
+        <div *ngIf="!(isLoggedIn()|async) && showRegisterForm" class="col-md-4 col-md-offset-4">
+            <app-register-user (hasAccBtnClicked)="showLogInForm($event)"></app-register-user>
+        </div>
+        <div class="row">
+        <div *ngIf="!(isLoggedIn()|async) && showPWReset" class="col-md-4 col-md-offset-4">
+            <app-reset-password (altLogInBtnClicked)="altBtnClicked($event)" (backBtnClicked)="showLogInForm($event)"></app-reset-password>
+        </div>
     </div>
-    <!--<div class="row">
-        <div *ngIf="!(isLoggedIn()|async)" class="col-md-4 col-md-offset-1">
-            <app-reset-password></app-reset-password>
-        </div>
-    </div>-->
+    </div>
 </div>

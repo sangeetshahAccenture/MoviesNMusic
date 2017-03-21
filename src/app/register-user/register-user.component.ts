@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
 import {Observable} from "rxjs";
 import {FormGroup, AbstractControl, FormBuilder, Validators} from "@angular/forms";
@@ -14,6 +14,7 @@ export class RegisterUserComponent implements OnInit {
     name: AbstractControl;
     password: AbstractControl;
     password2: AbstractControl;
+    @Output() hasAccBtnClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor(private authService: AuthService,
                 private fb: FormBuilder) {
@@ -57,5 +58,9 @@ export class RegisterUserComponent implements OnInit {
                 };
             }
         }
+    }
+    
+    userHasAcc() {
+        this.hasAccBtnClicked.emit(false);
     }
 }
