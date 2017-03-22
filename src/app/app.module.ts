@@ -12,6 +12,7 @@ import {RegisterUserComponent} from "app/register-user/register-user.component";
 import {AlertModule} from "ng2-bootstrap";
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {MoviesListComponent} from "app/display-movies/display-movies.component";
+import {MusicListComponent} from "app/display-music/display-music.component";
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {MoviesListComponent} from "app/display-movies/display-movies.component";
         RegisterUserComponent,
         ResetPasswordComponent,
         MoviesListComponent,
+        MusicListComponent,
     ],
     imports: [
         BrowserModule,
