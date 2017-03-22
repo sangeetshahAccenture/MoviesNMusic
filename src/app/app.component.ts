@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    title = 'app works! - MoviesNMusic';
+    title = 'Movies N Music';
     showRegisterForm: boolean = false;
     showPWReset: boolean = false;
     showLogIn: boolean = true;

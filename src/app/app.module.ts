@@ -11,6 +11,8 @@ import {DisplayUserComponent} from "app/display-user/display-user.component";
 import {RegisterUserComponent} from "app/register-user/register-user.component";
 import {AlertModule} from "ng2-bootstrap";
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import {MoviesListComponent} from "app/display-movies/display-movies.component";
+
 
 @NgModule({
     declarations: [
@@ -18,7 +20,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         DisplayUserComponent,
         LoginUserComponent,
         RegisterUserComponent,
-        ResetPasswordComponent
+        ResetPasswordComponent,
+        MoviesListComponent,
     ],
     imports: [
         BrowserModule,

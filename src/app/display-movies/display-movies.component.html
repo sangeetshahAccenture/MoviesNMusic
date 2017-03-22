@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control" #name (keyup)="search(name.value)"  placeholder="Search for a movie by name" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+  <div *ngFor="let movie of movies" class = "row jumbotron container" >
+        <div class="col-md-12">
+            <div class ="media-left">
+             <img src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}" class="poster"/>
+             </div>
+             <div class="media-body">
+                 <h2 class="media-heading">{{movie.title}}</h2> <br>
+             <div>{{movie.overview}}</div>
+             <br/>
+             <div class="release-date">Release Date {{movie.release_date}}</div>
+            <div class="vote-average">Avg Rating: {{movie.vote_average}}</div>
+             </div>        
+        </div>
+     <br/>
+     <br/>     
+    </div>
+
+<div class="container">
+
+  
+<!--<br/>
+<br/>
+<h3>Movies:</h3>
+<ul *ngIf="showTopRated == true">
+  <li *ngFor="let movie of movies">{{movie.title}}</li>
+</ul>
+<ul *ngIf="showTopRated == false">
+  <li *ngFor="let movie of searchedMovieResults">{{movie.title}}</li>
+</ul>-->
+
+<!--<p *ngIf="errorMessage">{{errorMessage}}</p>-->
+
+</div>

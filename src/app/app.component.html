@@ -2,7 +2,7 @@
     <h1>
         {{title}}
     </h1>
-    <div class="row" *ngIf="isLoggedIn()|async">
+  <!--  <div class="row" *ngIf="isLoggedIn()|async">
         <app-display-user></app-display-user>
     </div>
     <div class="row">
@@ -17,5 +17,27 @@
             <app-reset-password (altLogInBtnClicked)="altBtnClicked($event)" (backBtnClicked)="showLogInForm($event)"></app-reset-password>
         </div>
     </div>
+    </div>-->
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default btn-group-lg ">Movies</button>
+        <button type="button" class="btn btn-default btn-group-lg ">Music</button>
     </div>
+    <br/>
+    
+    <display-movies> </display-movies>
+
+
 </div>
