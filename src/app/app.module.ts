@@ -16,6 +16,7 @@ import {MusicListComponent} from "app/display-music/display-music.component";
 import {LandingPageComponent} from "app/landing-page/landing-page.component";
 import {SearchPageComponent} from "app/search-page/search-page.component";
 import {RouterModule} from '@angular/router';
+import {MoreInfoMoviesComponent} from 'app/moreInfo-movies/moreInfo-movies.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import {RouterModule} from '@angular/router';
         MoviesListComponent,
         MusicListComponent,
         LandingPageComponent,
-        SearchPageComponent
+        SearchPageComponent,
+        MoreInfoMoviesComponent
     ],
     imports: [
         BrowserModule,
@@ -56,6 +58,10 @@ import {RouterModule} from '@angular/router';
             {
                 path: 'resetpw',
                 component: ResetPasswordComponent
+            },
+            {
+                path: 'moreInfoMovies',
+                component: MoreInfoMoviesComponent
             }
             ])
     ],

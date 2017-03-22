@@ -1,16 +1,3 @@
-#a {
-    background-color:red;
-}
-#b {
-    background-color:yellow;
-}
-#c {
-    background-color:green;
-}
-.row {
-    height: 100%;
-}
-
 #imaginary_container{
     margin-top:50%; /* Don't copy this */
 }

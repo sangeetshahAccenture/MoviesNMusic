@@ -6,6 +6,7 @@ import { Movies } from "app/model/movies";
 import { MoviesService } from "app/services/movies.service";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class MoviesListComponent implements OnInit {
   searchedMovieResults: Observable<Movies[]>;
   mode = 'Observable';
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -55,5 +56,9 @@ export class MoviesListComponent implements OnInit {
     }
 
   }
+
+    moreInfoClicked() {
+        this.router.navigate(['moreInfoMovies']);
+    }
 
 }
