@@ -2,6 +2,7 @@ import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
 import {Observable} from "rxjs";
 import {FormGroup, AbstractControl, FormBuilder, Validators} from "@angular/forms";
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-register-user',
@@ -17,7 +18,8 @@ export class RegisterUserComponent implements OnInit {
     @Output() hasAccBtnClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor(private authService: AuthService,
-                private fb: FormBuilder) {
+                private fb: FormBuilder,
+                private router: Router) {
         this.form = fb.group({
             'name': ['', Validators.required],
             'email': ['', Validators.compose([
@@ -61,6 +63,6 @@ export class RegisterUserComponent implements OnInit {
     }
     
     userHasAcc() {
-        this.hasAccBtnClicked.emit(false);
+        this.router.navigate(['login']);
     }
 }

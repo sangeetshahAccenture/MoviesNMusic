@@ -44,6 +44,18 @@ import {RouterModule} from '@angular/router';
             {
                 path: 'search',
                 component: SearchPageComponent
+            },
+            {
+                path: 'signup',
+                component: RegisterUserComponent
+            },
+            {
+                path: 'login',
+                component: LoginUserComponent
+            },
+            {
+                path: 'resetpw',
+                component: ResetPasswordComponent
             }
             ])
     ],

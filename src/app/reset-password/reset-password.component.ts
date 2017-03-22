@@ -1,6 +1,7 @@
 import {Component, Output, EventEmitter} from "@angular/core";
 import {FormGroup, AbstractControl, FormBuilder, Validators} from "@angular/forms";
 import {AuthService} from "app/shared/auth.service";
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-reset-password',
@@ -12,7 +13,7 @@ export class ResetPasswordComponent {
     email: AbstractControl;
     @Output() backBtnClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    constructor(private authService: AuthService, private fb: FormBuilder) {
+    constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
         this.form = fb.group({
             'email': ['', Validators.required]
         });
@@ -27,6 +28,6 @@ export class ResetPasswordComponent {
     }
     
     backToLogIn() {
-        this.backBtnClicked.emit(true);
+        this.router.navigate(['login']);
     }
 }

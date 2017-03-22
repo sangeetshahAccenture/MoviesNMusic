@@ -2,6 +2,7 @@ import {Component, Output, EventEmitter} from "@angular/core";
 import {Observable} from "rxjs";
 import {AuthService} from "app/shared/auth.service";
 import {FormBuilder, Validators, AbstractControl, FormGroup} from "@angular/forms";
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-login-user',
@@ -14,7 +15,7 @@ export class LoginUserComponent {
     password: AbstractControl;
     @Output() altLogInBtnClicked: EventEmitter<string> = new EventEmitter<string>();
 
-    constructor(private authService: AuthService, private fb: FormBuilder) {
+    constructor(private authService: AuthService, private fb: FormBuilder, private route: Router) {
         this.form = fb.group({
             'email': ['', Validators.required],
             'password': ['', Validators.required]
@@ -35,11 +36,11 @@ export class LoginUserComponent {
     }
     
     registerClicked() {
-        this.altLogInBtnClicked.emit("register");
+        this.route.navigate(['signup']);
     }
     
     resetClicked() {
-        this.altLogInBtnClicked.emit("resetPW");
+        this.route.navigate(['resetpw']);
     }
 
 }
