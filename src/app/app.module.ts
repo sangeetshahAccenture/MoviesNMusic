@@ -13,7 +13,9 @@ import {AlertModule} from "ng2-bootstrap";
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import {MoviesListComponent} from "app/display-movies/display-movies.component";
 import {MusicListComponent} from "app/display-music/display-music.component";
-
+import {LandingPageComponent} from "app/landing-page/landing-page.component";
+import {SearchPageComponent} from "app/search-page/search-page.component";
+import {RouterModule} from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -24,6 +26,8 @@ import {MusicListComponent} from "app/display-music/display-music.component";
         ResetPasswordComponent,
         MoviesListComponent,
         MusicListComponent,
+        LandingPageComponent,
+        SearchPageComponent
     ],
     imports: [
         BrowserModule,
@@ -31,7 +35,17 @@ import {MusicListComponent} from "app/display-music/display-music.component";
         ReactiveFormsModule,
         HttpModule,
         AlertModule.forRoot(),
-        AngularFireModule.initializeApp(firebaseConfig, authConfig)
+        AngularFireModule.initializeApp(firebaseConfig, authConfig),
+        RouterModule.forRoot([
+            {
+                path: '',
+                component: LandingPageComponent
+            },
+            {
+                path: 'search',
+                component: SearchPageComponent
+            }
+            ])
     ],
     providers: [AuthService],
     bootstrap: [AppComponent]
