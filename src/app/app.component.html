@@ -18,8 +18,10 @@
                   <li><a routerLink='search'>Search</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                    <li><a routerLink='signup'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li *ngIf="isLoggedIn()|async"><a routerLink='login'><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li *ngIf="!(isLoggedIn()|async)"><a routerLink='signup'><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li *ngIf="!(isLoggedIn()|async)"><a routerLink='login'><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+                    <li *ngIf="isLoggedIn()|async"><a routerLink='user'><span class="glyphicon glyphicon-user"></span> {{(currentUser()|async).displayName}}</a></li>
+                    <li *ngIf="isLoggedIn()|async"><a href="#" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
             </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->

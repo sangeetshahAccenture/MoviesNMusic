@@ -16,7 +16,4 @@ export class DisplayUserComponent {
         return this.authService.currentUser();
     }
 
-    logout() {
-        this.authService.logout();
-    }
 }
