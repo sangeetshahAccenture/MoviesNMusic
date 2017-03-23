@@ -1,3 +1,10 @@
+#overviewDiv {
+    height: 3em;
+    line-height: 1em;
+	overflow: hidden;
+    text-overflow:ellipsis;
+}
+
 #imaginary_container{
     margin-top:10%; /* Don't copy this */
 }

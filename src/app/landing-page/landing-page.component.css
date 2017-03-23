@@ -1,5 +1,17 @@
 #imaginary_container{
-    margin-top:50%; /* Don't copy this */
+}
+
+h1 {
+    font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 30px;
+    color: white;
+}
+
+div {
+    text-align: center;
 }
 
     .btn-circle

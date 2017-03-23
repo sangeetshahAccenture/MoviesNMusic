@@ -2,7 +2,7 @@
 .login-or {
     position: relative;
     font-size: 18px;
-    color: #aaa;
+    color: white;
     margin-top: 10px;
     margin-bottom: 10px;
     padding-top: 10px;
@@ -15,7 +15,7 @@
     left: 50%;
     top: -2px;
     margin-left: -25px;
-    background-color: #fff;
+    background-color: transparent;
     width: 50px;
     text-align: center;
 }
@@ -30,6 +30,7 @@
 h3 {
     text-align: center;
     line-height: 300%;
+    color: white;
 }
 
 #googlebtn {
