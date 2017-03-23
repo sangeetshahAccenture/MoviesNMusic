@@ -6,7 +6,7 @@ import { Movies } from "app/model/movies";
 import { MoviesService } from "app/services/movies.service";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {Router} from '@angular/router';
+import {Router, NavigationExtras} from "@angular/router";
 
 
 @Component({
@@ -57,7 +57,16 @@ export class MoviesListComponent implements OnInit {
 
   }
 
-    moreInfoClicked() {
+    moreInfoClicked(movie: Movies) {
+        //console.log("moreInfoClicked :-"+JSON.stringify(movie));
+        //debugger;
+         let navigationExtras: NavigationExtras = {
+            queryParams: {
+                "movie": JSON.stringify(movie),
+            }
+        };
+        
+        localStorage.setItem('movieResult', JSON.stringify(movie));
         this.router.navigate(['moreInfoMovies']);
     }
 

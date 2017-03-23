@@ -4,7 +4,7 @@ export class Movies {
     adult: boolean,
     overview: string,
     release_date: string,
-    //genre_ids: number[];
+    genre_ids: number[],
     id: string,
     original_title: number,
     original_language: string,
