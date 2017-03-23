@@ -28,6 +28,6 @@ export class ResetPasswordComponent {
     }
     
     backToLogIn() {
-        this.router.navigate(['login']);
+        this.router.navigate(['user']);
     }
 }

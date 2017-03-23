@@ -37,9 +37,5 @@ export class LoginUserComponent {
     registerClicked() {
         this.router.navigate(['signup']);
     }
-    
-    resetClicked() {
-        this.router.navigate(['resetpw']);
-    }
 
 }

@@ -20,3 +20,8 @@ li, ul {
     text-align: center;
     padding-left: none;
 }
+
+#userContainer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}

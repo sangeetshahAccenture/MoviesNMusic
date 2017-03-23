@@ -1,4 +1,4 @@
-<div class="row jumbotron container">
+<div id="userContainer" class="row jumbotron container">
     <div class="col-md-6 col-md-offset-3">
             <ul >
               <li><h3>{{(currentUser()|async).displayName}}</h3></li><br/>
@@ -6,7 +6,10 @@
                         [src]="(currentUser()|async).photoURL"/></li><br/>
                 <li><strong>Email:</strong> {{(currentUser()|async).email}}</li>
                 <li><strong>UID:</strong> {{(currentUser()|async).uid}}</li>
-                <li><strong>Provider ID:</strong> {{(currentUser()|async).providerId}}</li>
+                <li><strong>Provider ID:</strong> {{(currentUser()|async).providerId}}</li><br/>
+                <li><button type="button" class="btn btn btn-primary" (click)='resetClicked()'>
+                        Reset Password
+                    </button></li>
             </ul>
     </div>
 </div>
