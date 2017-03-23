@@ -1,0 +1,37 @@
+#imaginary_container{
+    margin-top:10%; /* Don't copy this */
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: black;
+    padding: 0x; 
+}
+
+.animated {
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.jumbotron .bg-overlay {
+    height: 800px;
+    background: rgba(0,0,0,0);
+}
+.jumbotron:hover .bg-overlay {
+    height: 800px;
+    background: rgba(0,0,0,0.5);
+}

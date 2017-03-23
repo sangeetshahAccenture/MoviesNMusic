@@ -1,21 +1,38 @@
 <div class="container">
-	<div class="row">
+    <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
-            <div id="imaginary_container"> 
+            <div id="imaginary_container">
                 <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control" #name (keyup)="search(name.value)"  placeholder="Search for a movie by name" >
+                    <input type="text" class="form-control" #term (keyup)="searchTrack(term.value)" placeholder="Search for music">
                     <span class="input-group-addon">
                         <button type="submit">
                             <span class="glyphicon glyphicon-search"></span>
-                        </button>  
+                    </button>
                     </span>
                 </div>
             </div>
         </div>
-	</div>
+    </div>
 </div>
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
+<div><h3>{{desc}}</h3></div>
+<div *ngFor="let result of results" class="row jumbotron container">
+    <div class="col-md-12">
+        <div class="media-left">     
+            <img src="{{result.image[2]['#text']}}"/>
+        </div>
+        <div class="media-body">
+
+            <h2 class="media-heading">{{result.name}}</h2> <br>
+
+            <div *ngIf="!isTopTracks">By: {{result.artist}}</div>
+            <div *ngIf="isTopTracks">By: {{result.artist.name}}</div>
+            <br/>
+            <div> <a class="btn btn-info" href="{{result.url}}"> More... </a> </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+</div>
