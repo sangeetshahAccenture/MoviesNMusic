@@ -29,8 +29,8 @@
                      <h2 class="media-heading">{{movie.title}}</h2> <!--<br>
                      <div id='overviewDiv'>{{movie.overview}}</div>-->
                  <br/>
-                 <div class="release-date"><strong>Release Date:</strong> {{movie.release_date}}</div>
-                <div class="vote-average"><strong>IMDB Rating:</strong> {{movie.vote_average}}</div>
+                  <div class="vote-average"><strong>IMDB Rating:</strong> {{movie.vote_average}}</div>
+                  <div class="release-date"><strong>Release:</strong> {{movie.release_date | date : "MMMM d, y"}}</div>
                      <br/>
                     <button class="btn btn-primary" (click)='moreInfoClicked(movie)'>More info</button>
                  </div>
