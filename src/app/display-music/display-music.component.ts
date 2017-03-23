@@ -50,7 +50,7 @@ export class MusicListComponent implements OnInit {
 
   getTopTracks() {
     this.isTopTracks = true;
-    this.desc = "Top Tracks In The charts:";
+    this.desc = "Top Tracks";
 
     this._lastFM.Charts.getTopTracks()
       .subscribe(

@@ -21,7 +21,7 @@ export class MoviesListComponent implements OnInit {
   errorMessage: string;
   movies: Movies[];
   searchedMovieResults: Observable<Movies[]>;
-  mode = 'Observable';
+  desc:string;
 
   constructor(private moviesService: MoviesService, private router: Router) { }
 
@@ -34,7 +34,7 @@ export class MoviesListComponent implements OnInit {
 
   //get the popular movies from the movie service
   getTopRated() {
-    
+    this.desc = "Popular";
     this.moviesService.getTopRated()
       .subscribe(
       data => this.movies = data,
@@ -44,7 +44,7 @@ export class MoviesListComponent implements OnInit {
   //Search for a film by name
   //usees getMovies function from Movies Service
   search(name: string) {
-
+    this.desc = "results";
     this.moviesService.getMovies(name)
       .subscribe(
       data => this.movies = data,

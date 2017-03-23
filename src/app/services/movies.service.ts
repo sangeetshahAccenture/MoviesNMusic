@@ -10,6 +10,7 @@ export class MoviesService {
 
   //APIs
   private search_url = 'https://api.themoviedb.org/3/search/movie?';
+  private more_info_url = "https://api.themoviedb.org/3/movie/";
   private api_key = "api_key=2cf564d5ffd8372c4d36e69d26917103";
   private popular_movies_url = 'https://api.themoviedb.org/3/discover/movie?api_key=2cf564d5ffd8372c4d36e69d26917103&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
 
@@ -19,7 +20,7 @@ export class MoviesService {
   getTopRated(): Observable<Movies[]> {
     return this.http.get(this.popular_movies_url)
       .map(this.extractData)
-      .do(data => console.log("Popular Movies Results from API: " + JSON.stringify(data)))
+      //.do(data => console.log("Popular Movies Results from API: " + JSON.stringify(data)))
       .catch(this.handleError);
   }
 
@@ -31,8 +32,19 @@ export class MoviesService {
 
     return this.http.get(query_url)
       .map(this.extractData)
-      .do(data => console.log("Search Results from API - : " + JSON.stringify(data)))
+      //.do(data => console.log("Search Results from API - : " + JSON.stringify(data)))
       .catch(this.handleError);
+  }
+
+  getMoreInfo(movieId: string):Observable<any>{
+
+    let query_url = this.more_info_url + movieId + "?" + this.api_key + "&language=en-US";
+    console.log(query_url);
+
+    return this.http.get(query_url)
+      .map((res:Response) => res.json())
+      .do(data => localStorage.setItem("getMoreInfo",JSON.stringify(data)))
+      .catch(this.handleError);  
   }
 
   private extractData(res: Response) {
@@ -40,6 +52,7 @@ export class MoviesService {
     let results = body.results.filter((item) => item.poster_path !== null);
     return results || {};
   }
+  
 
   private handleError(error: Response | any) {
     let errMsg: string;

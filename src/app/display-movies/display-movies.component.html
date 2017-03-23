@@ -19,17 +19,18 @@
 <br/>
 <br/>
 <br/>
+<div><h2 class="desc">{{desc}}</h2></div>
       <div *ngFor="let movie of movies" class = "row jumbotron container" >
             <div class="col-md-12">
                 <div class ="media-left">
                  <img src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}" class="poster"/>
                  </div>
                  <div class="media-body">
-                     <h2 class="media-heading">{{movie.title}}</h2> <br>
-                     <div id='overviewDiv'>{{movie.overview}}</div>
+                     <h2 class="media-heading">{{movie.title}}</h2> <!--<br>
+                     <div id='overviewDiv'>{{movie.overview}}</div>-->
                  <br/>
                  <div class="release-date"><strong>Release Date:</strong> {{movie.release_date}}</div>
-                <div class="vote-average"><strong>Avg Rating:</strong> {{movie.vote_average}}</div>
+                <div class="vote-average"><strong>IMDB Rating:</strong> {{movie.vote_average}}</div>
                      <br/>
                     <button class="btn btn-primary" (click)='moreInfoClicked(movie)'>More info</button>
                  </div>
