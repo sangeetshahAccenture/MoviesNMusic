@@ -10,6 +10,14 @@
                 <li><button type="button" class="btn btn btn-primary" (click)='resetClicked()'>
                         Reset Password
                     </button></li>
+                    <br/><hr class="hr-or"><br/>
+                <li>
+                        <input type="text" class="form-control" placeholder="Change your name here" #name><br/>
+                        <button type="button" class="btn btn btn-primary" (click)="changeName(name.value)">
+                        Change Name
+                    </button>
+                </li>
+                <li></li>    
             </ul>
     </div>
 </div>

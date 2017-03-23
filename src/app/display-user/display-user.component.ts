@@ -20,4 +20,8 @@ export class DisplayUserComponent {
     resetClicked() {
         this.router.navigate(['resetpw']);
     }
+    
+    changeName(value: any) {
+        console.log(value);
+    }
 }
