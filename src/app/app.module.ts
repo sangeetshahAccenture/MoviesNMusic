@@ -62,6 +62,10 @@ import {MoreInfoMoviesComponent} from 'app/moreInfo-movies/moreInfo-movies.compo
             {
                 path: 'moreInfoMovies',
                 component: MoreInfoMoviesComponent
+            },
+            {
+                path: 'user',
+                component: DisplayUserComponent
             }
             ])
     ],

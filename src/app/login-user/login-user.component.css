@@ -35,4 +35,10 @@ h3 {
 
 #googlebtn {
     background-color: #D34836;
+    border: none;
+}
+
+#facebookbtn {
+    background-color: #3B5998;
+    border: none;
 }

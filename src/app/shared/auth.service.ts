@@ -4,6 +4,7 @@ import {AngularFireAuth, AuthProviders, AuthMethods, AngularFire, FirebaseApp} f
 import {UserInfo} from "./user-info";
 import {Observable, Subject, ReplaySubject, AsyncSubject} from "rxjs";
 import Auth = firebase.auth.Auth;
+import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -11,7 +12,7 @@ export class AuthService {
     private auth: User;
     private firebaseAuth: Auth;
 
-    constructor(private angularFireAuth: AngularFireAuth, @Inject(FirebaseApp) firebaseApp: any) {
+    constructor(private angularFireAuth: AngularFireAuth, @Inject(FirebaseApp) firebaseApp: any, private router: Router) {
         this.initUserInfoSubject();
         // console.log("AuthService");
         this.firebaseAuth = firebaseApp.auth();
@@ -120,6 +121,16 @@ export class AuthService {
             //noinspection TypeScriptUnresolvedFunction
             this.angularFireAuth
                 .login({provider: AuthProviders.Twitter, method: AuthMethods.Popup})
+                //noinspection TypeScriptUnresolvedFunction
+                .//noinspection TypeScriptUnresolvedFunction
+                then(auth => result.next("success"))
+                .catch(err => result.error(err));
+            return result.asObservable();
+        }
+            else if (provider === "facebook") {
+            //noinspection TypeScriptUnresolvedFunction
+            this.angularFireAuth
+                .login({provider: AuthProviders.Facebook, method: AuthMethods.Popup})
                 //noinspection TypeScriptUnresolvedFunction
                 .//noinspection TypeScriptUnresolvedFunction
                 then(auth => result.next("success"))
