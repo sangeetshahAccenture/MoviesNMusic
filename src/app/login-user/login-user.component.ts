@@ -13,9 +13,8 @@ export class LoginUserComponent {
     form: FormGroup;
     email: AbstractControl;
     password: AbstractControl;
-    @Output() altLogInBtnClicked: EventEmitter<string> = new EventEmitter<string>();
 
-    constructor(private authService: AuthService, private fb: FormBuilder, private route: Router) {
+    constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
         this.form = fb.group({
             'email': ['', Validators.required],
             'password': ['', Validators.required]
@@ -36,11 +35,11 @@ export class LoginUserComponent {
     }
     
     registerClicked() {
-        this.route.navigate(['signup']);
+        this.router.navigate(['signup']);
     }
     
     resetClicked() {
-        this.route.navigate(['resetpw']);
+        this.router.navigate(['resetpw']);
     }
 
 }

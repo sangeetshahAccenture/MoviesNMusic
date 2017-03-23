@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, AfterViewInit} from '@angular/core';
 
 @Component({
     selector: 'app-search-page',
@@ -6,6 +6,21 @@ import {Component} from '@angular/core';
     styleUrls: ['./search-page.component.css']
 })
 
-export class SearchPageComponent {
+export class SearchPageComponent implements AfterViewInit {
+    
+    ngAfterViewInit() {
+        document.getElementById('moviesBtn').focus();
+    }
+    
+    isMoviesSearch: boolean = true;
+        
+    moviesBtnClicked(){
+        this.isMoviesSearch = true;
+    }
+    
+    musicBtnClicked() {
+        this.isMoviesSearch = false;
+    }
+    
     
 }

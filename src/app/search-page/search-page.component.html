@@ -1,11 +1,11 @@
 <div class="btn-group btn-group-justified" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default btn-group-lg focus ">Movies</button>
+        <div class="btn-group" role="group" id='moviesBtn'>
+            <button type="button" class="btn btn-default btn-group-lg" (click)='moviesBtnClicked()'>Movies</button>
         </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default btn-group-lg ">Music</button>
+        <div class="btn-group" role="group" id="musicBtn">
+            <button type="button" class="btn btn-default btn-group-lg" (click)='musicBtnClicked()'>Music</button>
         </div>
 </div>
 <br/>
 
-<display-movies></display-movies>
+<display-movies *ngIf='isMoviesSearch'></display-movies>
