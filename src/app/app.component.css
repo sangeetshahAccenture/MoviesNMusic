@@ -1,10 +1,11 @@
 #abc {
-    height: 800px;
+    height: 1000px;
     background-color:black;
-    background-image: url(../assets/images/landing-background.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    
+    background: url(../assets/images/landing-background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;    
 }
 
 .navbar-brand {
