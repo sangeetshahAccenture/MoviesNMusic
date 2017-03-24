@@ -1,22 +1,28 @@
-<div class="mainJumbotron container-fluid">  
-<br/>
-<br/>
-<br/>
-<div class="row-fluid overlay" id="overlay">
-    <div class="col-md-4"> <img src="{{_poster}}" /> </div>
-    <div class="col-md-8">
-       <h2>{{_movie.title}}</h2>
-        <br/>
-        <h3>Overview</h3>
-        <p>{{_movie.overview}}</p>
-         <br>
-         <h5>IMDB Rating: {{_movie.vote_average}}</h5>
-         <h5>Release: {{_moreInfoResults.release_date | date : "MMMM d, y" }}</h5>
-         <h5>Budget: {{_moreInfoResults.budget | currency : "USD" : true }}</h5>
-         <br/>
-         <a class="btn btn-info" href="{{_moreInfoResults.homepage}}" > Official Home Page </a>
-        
+<div class="mainJumbotron container-fluid">
+    <br/>
+    <br/>
+    <br/>
+    <div class="row-fluid overlay" id="overlay">
+        <div class="col-md-4">
+            <img src="{{_poster}}" />
+            <br/>
+            <br/>
+            <br/>        
+            <h3 >Trailer</h3>
+        </div>
+        <div class="col-md-8">
+            <h2>{{_movie.title}}</h2>
+            <br/>
+            <h3>Overview</h3>
+            <p>{{_movie.overview}}</p>
+            <br>
+            <h5>IMDB Rating: {{_movie.vote_average}}</h5>
+            <h5>Release: {{_moreInfoResults.release_date | date : "MMMM d, y" }}</h5>
+            <h5>Budget: {{_moreInfoResults.budget | currency : "USD" : true }}</h5>
+            <br/>
+            <br/>
+            <a class="btn btn-info" href="{{_moreInfoResults.homepage}}"> Official Home Page </a>
+        </div>
     </div>
-</div>
-
+    <br/>
 </div>
