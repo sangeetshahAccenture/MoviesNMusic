@@ -29,19 +29,27 @@ export class DisplayUserComponent {
     changeName(value: any) {
         console.log(value);
  
-        var database = firebase.database();
-        firebase.database().ref( firebase.auth().currentUser.uid).push(value);
+    //     var database = firebase.database();
+    //     firebase.database().ref( firebase.auth().currentUser.uid).push(value);
 
  
 
-        var starCountRef = firebase.database().ref(firebase.auth().currentUser.uid);
-        starCountRef.on('value', function(snapshot) {
-              console.log(snapshot.val());
-        });
+    //     var starCountRef = firebase.database().ref(firebase.auth().currentUser.uid);
+    //     starCountRef.on('value', function(snapshot) {
+    //           console.log(snapshot.val());
+    //     });
 
-      var commentsRef = firebase.database().ref(firebase.auth().currentUser.uid);
-        commentsRef.on('child_added', function(data) {
-         console.log(data.val());
-        });
+    //   var commentsRef = firebase.database().ref(firebase.auth().currentUser.uid);
+    //     commentsRef.on('child_added', function(data) {
+    //      console.log(data.val());
+    //     });
+    if(!value)
+        return;
+    var user = firebase.auth().currentUser;
+
+    user.updateProfile({
+    displayName: value,
+    photoURL: user.photoURL
+    });
     }
 }

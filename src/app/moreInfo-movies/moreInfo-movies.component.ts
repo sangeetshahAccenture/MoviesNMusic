@@ -37,7 +37,12 @@ export class MoreInfoMoviesComponent {
         this._poster = "http://image.tmdb.org/t/p/w300" +  this._movie.poster_path;
         //this._bg_path = "http://image.tmdb.org/t/p/w1280" + this._movie.backdrop_path;
         //this._bg_path = "http://www.homedepot.com/catalog/productImages/1000/23/23da0e99-bebd-4a7a-9c31-76151987b65a_1000.jpg";
-    }
+    
+        var database = firebase.database();
+        if(firebase.auth().currentUser)
+         firebase.database().ref( firebase.auth().currentUser.uid+"Movies").push(this._movie.title);
+
+}
 
     getMovieResult() {
 
