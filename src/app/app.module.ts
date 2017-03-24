@@ -18,6 +18,8 @@ import {SearchPageComponent} from "app/search-page/search-page.component";
 import {RouterModule} from '@angular/router';
 import {MoreInfoMoviesComponent} from 'app/moreInfo-movies/moreInfo-movies.component';
 
+
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -74,3 +76,5 @@ import {MoreInfoMoviesComponent} from 'app/moreInfo-movies/moreInfo-movies.compo
 })
 export class AppModule {
 }
+
+

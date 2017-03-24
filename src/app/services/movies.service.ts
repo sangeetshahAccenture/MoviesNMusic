@@ -36,14 +36,30 @@ export class MoviesService {
       .catch(this.handleError);
   }
 
+
   getMoreInfo(movieId: string):Observable<any>{
 
-    let query_url = this.more_info_url + movieId + "?" + this.api_key + "&language=en-US";
+   
+     let query_url = this.more_info_url + movieId + "?" + this.api_key + "&language=en-US";
     console.log(query_url);
 
     return this.http.get(query_url)
       .map((res:Response) => res.json())
       .do(data => localStorage.setItem("getMoreInfo",JSON.stringify(data)))
+      .catch(this.handleError);  
+  }
+
+  getMovieTrailers(movieId: string):Observable<any>{
+
+    let query_url = this.more_info_url + movieId + "/videos?" + this.api_key + "&language=en-US";
+    console.log(query_url);
+
+  
+
+    return this.http.get(query_url)
+      .map((res:Response) => res.json())
+      .do(data => localStorage.setItem("trailers",JSON.stringify(data)))
+      //.do(data => console.log("Video Results from API - : " + JSON.stringify(data)))
       .catch(this.handleError);  
   }
 
