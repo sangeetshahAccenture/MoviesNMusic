@@ -7,6 +7,7 @@ import { MoviesService } from "app/services/movies.service";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {Router, NavigationExtras} from "@angular/router";
+import * as firebase from "firebase";
 
 
 @Component({
@@ -22,6 +23,7 @@ export class MoviesListComponent implements OnInit {
   movies: Movies[];
   searchedMovieResults: Observable<Movies[]>;
   desc:string;
+    searchHistory: string[];
 
   constructor(private moviesService: MoviesService, private router: Router) { }
 
@@ -29,6 +31,7 @@ export class MoviesListComponent implements OnInit {
 
     //Load the popular movies on first
     this.getTopRated();
+      this.searchHistory = ['No search history'];
 
   }
 
@@ -70,5 +73,6 @@ export class MoviesListComponent implements OnInit {
         localStorage.setItem('movieResult', JSON.stringify(movie));
         this.router.navigate(['moreInfoMovies']);
     }
+    
 
 }
