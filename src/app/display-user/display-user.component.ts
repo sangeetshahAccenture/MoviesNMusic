@@ -36,7 +36,7 @@ export class DisplayUserComponent {
 
         var starCountRef = firebase.database().ref(firebase.auth().currentUser.uid);
         starCountRef.on('value', function(snapshot) {
-            //  console.log(snapshot.val());
+              console.log(snapshot.val());
         });
 
       var commentsRef = firebase.database().ref(firebase.auth().currentUser.uid);
