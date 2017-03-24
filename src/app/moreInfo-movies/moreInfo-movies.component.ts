@@ -40,19 +40,19 @@ export class MoreInfoMoviesComponent {
 
         this.hasTrailer = false;
 
+
         this.getMovieResult();
         this.getMovieInfo();
         this.getMovieTrailers();
 
         this._moreInfoResults = JSON.parse(localStorage.getItem('getMoreInfo'));
+        //this._trailers = JSON.parse(localStorage.getItem('trailers'));
         //this.video = { id: this._trailers.results[0].key };
         //console.log( "Key"+this._videodata.results[0].key);
         //this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + this._videodata.results[0].key);
 
-        this._bg_path = "";  
-        this._poster = "http://image.tmdb.org/t/p/w300" +  this._movie.poster_path;
-        //this._bg_path = "http://image.tmdb.org/t/p/w1280" + this._movie.backdrop_path;
-        //this._bg_path = "http://www.homedepot.com/catalog/productImages/1000/23/23da0e99-bebd-4a7a-9c31-76151987b65a_1000.jpg";
+        this._poster = "http://image.tmdb.org/t/p/w300" + this._movie.poster_path;
+        window.scrollTo(0, 0);
     }
 
     getMovieResult() {
