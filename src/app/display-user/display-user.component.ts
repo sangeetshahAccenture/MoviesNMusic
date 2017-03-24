@@ -3,6 +3,8 @@ import {AuthService} from "app/shared/auth.service";
 import {UserInfo} from "app/shared/user-info";
 import {Observable} from "rxjs";
 import {Router} from '@angular/router';
+import {Visitor} from "app/shared/analytics.service";
+import * as firebase from "firebase";
 
 @Component({
     selector: 'app-display-user',
@@ -11,7 +13,10 @@ import {Router} from '@angular/router';
 })
 export class DisplayUserComponent {
 
-    constructor(private authService: AuthService, private router: Router) {}
+    constructor(private authService: AuthService, private router: Router) {
+        console.log("DisplayUserComponent Loaded");
+        Visitor.pageview("DisplayUserComponent").send();
+    }
 
     currentUser(): Observable<UserInfo> {
         return this.authService.currentUser();
@@ -23,5 +28,20 @@ export class DisplayUserComponent {
     
     changeName(value: any) {
         console.log(value);
+ 
+        var database = firebase.database();
+        firebase.database().ref( firebase.auth().currentUser.uid).push(value);
+
+ 
+
+        var starCountRef = firebase.database().ref(firebase.auth().currentUser.uid);
+        starCountRef.on('value', function(snapshot) {
+            //  console.log(snapshot.val());
+        });
+
+      var commentsRef = firebase.database().ref(firebase.auth().currentUser.uid);
+        commentsRef.on('child_added', function(data) {
+         console.log(data.val());
+        });
     }
 }

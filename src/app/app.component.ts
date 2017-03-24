@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
 import {UserInfo} from 'app/shared/user-info';
 import {Observable} from "rxjs";
+import {Visitor} from "app/shared/analytics.service";
 
 @Component({
     selector: 'app-root',
@@ -11,6 +12,9 @@ import {Observable} from "rxjs";
 export class AppComponent {
 
     constructor(private authService: AuthService) {
+        console.log("AppComponent Loaded");
+        Visitor.pageview("AppComponent").send();
+        
     }
 
     isLoggedIn(): Observable<boolean> {

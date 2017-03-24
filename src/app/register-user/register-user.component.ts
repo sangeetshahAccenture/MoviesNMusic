@@ -3,6 +3,7 @@ import {AuthService} from "app/shared/auth.service";
 import {Observable} from "rxjs";
 import {FormGroup, AbstractControl, FormBuilder, Validators} from "@angular/forms";
 import {Router} from '@angular/router';
+import {Visitor} from "app/shared/analytics.service";
 
 @Component({
     selector: 'app-register-user',
@@ -20,6 +21,8 @@ export class RegisterUserComponent implements OnInit {
     constructor(private authService: AuthService,
                 private fb: FormBuilder,
                 private router: Router) {
+        console.log("RegisterUserComponent Loaded");
+        Visitor.pageview("RegisterUserComponent").send();
         this.form = fb.group({
             'name': ['', Validators.required],
             'email': ['', Validators.compose([

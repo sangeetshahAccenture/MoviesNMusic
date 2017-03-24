@@ -44,6 +44,7 @@ export class MoviesListComponent implements OnInit {
   //Search for a film by name
   //usees getMovies function from Movies Service
   search(name: string) {
+    console.log(name);
     this.desc = "results";
     this.moviesService.getMovies(name)
       .subscribe(

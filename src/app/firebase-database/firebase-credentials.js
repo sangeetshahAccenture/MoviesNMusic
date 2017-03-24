@@ -9,3 +9,9 @@
     messagingSenderId: "1032697832644"
   };
   firebase.initializeApp(config);
+  var database = firebase.database();
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
