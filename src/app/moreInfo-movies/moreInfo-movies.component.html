@@ -1,4 +1,4 @@
-<div class="mainJumbotron container-fluid">
+<div class="overview container-fluid">
     <br/>
     <br/>
     <br/>
@@ -8,10 +8,10 @@
             <br/>
             <br/>
             <br/>        
-            <h3 >Trailer</h3>
+            <h3 *ngIf="url">Trailer</h3>
             <iframe *ngIf="url" width="100%" height="315" [src]="url" frameborder="0" allowfullscreen></iframe>
         </div>
-        <div class="col-md-8">
+        <div class=" col-md-8">
             <h2>{{_movie.title}}</h2>
             <br/>
             <h3>Overview</h3>
@@ -23,6 +23,7 @@
             <br/>
             <br/>
             <a class="btn btn-info" href="{{_moreInfoResults.homepage}}"> Official Home Page </a>
+        
         </div>
     </div>
     <br/>
