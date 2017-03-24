@@ -31,7 +31,9 @@ export class MoviesListComponent implements OnInit {
 
     //Load the popular movies on first
     this.getTopRated();
-      this.searchHistory = ['No search history'];
+      //this.searchHistory[] = [];
+
+   
 
   }
 
@@ -72,6 +74,13 @@ export class MoviesListComponent implements OnInit {
         
         localStorage.setItem('movieResult', JSON.stringify(movie));
         this.router.navigate(['moreInfoMovies']);
+    }
+    historyCLicked(){
+           var commentsRef = firebase.database().ref(firebase.auth().currentUser.uid);
+        commentsRef.on('child_added', function(data) {
+         console.log(data.val());
+         this.searchHistory =(data.val.toString);
+        });
     }
     
 

@@ -8,6 +8,9 @@ import { Observable } from "rxjs";
 import { BrowserModule } from '@angular/platform-browser';
 import { DomSanitizer } from '@angular/platform-browser';
 
+import * as firebase from "firebase";
+
+
 
 @Component({
    selector: 'app-moreInfo-movies',
@@ -53,6 +56,9 @@ export class MoreInfoMoviesComponent {
 
        this._poster = "http://image.tmdb.org/t/p/w300" + this._movie.poster_path;
        window.scrollTo(0, 0);
+        var database = firebase.database();
+        if(firebase.auth().currentUser.uid)
+         firebase.database().ref( firebase.auth().currentUser.uid).push(this._movie.title);
    }
 
    getMovieResult() {

@@ -50,6 +50,6 @@ export class DisplayUserComponent {
     user.updateProfile({
     displayName: value,
     photoURL: user.photoURL
-    });
+});
     }
 }

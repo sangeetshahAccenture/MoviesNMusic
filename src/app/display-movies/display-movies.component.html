@@ -8,11 +8,11 @@
                         <button type="submit">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
-                        <a class="btn-sm dropdown-toggle" data-toggle="dropdown" href="#">
+                        <a class="btn-sm dropdown-toggle" data-toggle="dropdown" (click)="historyCLicked()">
                                 History <span class="caret"></span>
                             </a>
                             <ul *ngFor="let search of searchHistory" class="dropdown-menu">
-                                <li><a href="#">{{search}}</a></li>
+                                <li><a>{{search}}</a></li>
                             </ul>
                     </span>
                 </div>
