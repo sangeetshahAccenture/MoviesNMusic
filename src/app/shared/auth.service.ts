@@ -40,7 +40,7 @@ export class AuthService {
     login(email: string, password: string) {
         // console.log("login: ", email);
         this.initUserInfoSubject();
-        this.angularFireAuth.login({email: email, password: password});
+        this.angularFireAuth.login({email: email, password: password}).then(auth => this.router.navigate(['search']));
     }
 
     private initUserInfoSubject() {
@@ -113,7 +113,7 @@ export class AuthService {
                 .login({provider: AuthProviders.Google, method: AuthMethods.Popup})
                 //noinspection TypeScriptUnresolvedFunction
                 .//noinspection TypeScriptUnresolvedFunction
-                then(auth => result.next("success"))
+                then(auth => result.next("success")).then(auth => this.router.navigate(['search']))
                 .catch(err => result.error(err));
             return result.asObservable();
         }
@@ -123,7 +123,7 @@ export class AuthService {
                 .login({provider: AuthProviders.Twitter, method: AuthMethods.Popup})
                 //noinspection TypeScriptUnresolvedFunction
                 .//noinspection TypeScriptUnresolvedFunction
-                then(auth => result.next("success"))
+                then(auth => result.next("success")).then(auth => this.router.navigate(['search']))
                 .catch(err => result.error(err));
             return result.asObservable();
         }
@@ -133,7 +133,7 @@ export class AuthService {
                 .login({provider: AuthProviders.Facebook, method: AuthMethods.Popup})
                 //noinspection TypeScriptUnresolvedFunction
                 .//noinspection TypeScriptUnresolvedFunction
-                then(auth => result.next("success"))
+                then(auth => result.next("success")).then(auth => this.router.navigate(['search']))
                 .catch(err => result.error(err));
             return result.asObservable();
         }
